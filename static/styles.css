@@ -1,0 +1,23 @@
+#summarybutton {
+    margin-top: 20px;
+    margin-bottom: 0px;
+  }
+  #inputbox, #summarybox, #it, #sumstats{
+    padding-left: 30px ;
+    padding-right:   30px;
+    border-radius: 25px;
+  }
+  #sumstats, #it{
+    font-size: 18px;
+    color: black;
+  }
+  .centered {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  body {
+    background-image: url('https://media.giphy.com/media/vvU26eHAJUmd1RecYZ/giphy-downsized-large.gif?cid=ecf05e47yttvpk9433544h80trv18nmgvxrskubl3cxaycft&rid=giphy-downsized-large.gif&ct=g');
+    background-repeat: no-repeat;
+    background-size: cover;
+  }

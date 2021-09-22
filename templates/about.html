@@ -1,0 +1,101 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>{{title}}</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <style>
+     #summarybutton {
+        margin-top: 20px;
+        margin-bottom: 0px;
+        border-radius: 10px;
+      }
+      #infobutton{
+        border-radius: 20px;
+      }
+      #inputbox, #summarybox, #it, #sumstats{
+        padding-left: 30px ;
+        padding-right:   30px;
+        border-radius: 25px;
+      }
+      h1{
+        text-align: center;
+        font-size: 56px;
+        color: rgb(255, 196, 252);
+        text-shadow: 2px 2px 2px rgb(52, 0, 195);
+        -webkit-text-fill-color: linear-gradient(rgb(112, 72, 245), rgrgb(255, 255, 255));
+        border-radius: 6px;
+      }
+      h4{
+        text-align: center;
+        color: white;
+        outline: 2px rgb(52, 0, 195);
+        text-shadow: 1px 0px 10px rgb(170, 146, 237);
+        font-size: 25px;
+      }
+      .centered {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .background {
+        background-image: url('https://media.giphy.com/media/vvU26eHAJUmd1RecYZ/giphy-downsized-large.gif?cid=ecf05e47yttvpk9433544h80trv18nmgvxrskubl3cxaycft&rid=giphy-downsized-large.gif&ct=g');
+        background-repeat: no-repeat;
+    background-size: cover;
+    -webkit-filter: blur(3px);
+    -moz-filter: blur(3px);
+    -o-filter: blur(3px);
+    -ms-filter: blur(3px);
+    filter: blur(3px);
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    background-position: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class = "background">
+      <div class = "blur"></div>
+  </div>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+      <a class="navbar-brand text-white">Article Summarizer</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item active">
+            <a class="nav-link text-primary" href="{% url 'index' %}">Summarize <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-danger" href="{% url 'about' %}">About <span class="sr-only">(current)</span></a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="container-md">
+      <div class="row justify-content-center">
+        <div class="col-3">
+          <h1>Sai Tippana</h1>
+          <br>
+          <img src="" alt="" width="350">
+          <br><br>
+          <h4><span>I am an undergraduate student at Georgia State University studying computer science. In my free time I like to sleep, workout, hangout with friends, and work on coding projects.</span></h4>
+        </div>
+      </div>
+    </div>
+
+  </body>
+</html>
