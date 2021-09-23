@@ -7,24 +7,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>{{title}}</title>
     <style>
+      body{
+        background-color: black;
+      }
       #summarybutton {
         margin-top: 20px;
         margin-bottom: 0px;
-        border-radius: 10px;
+        border-radius: 8px;
+        background-image: linear-gradient(rgb(233, 131, 253), rgb(98, 1, 146));
       }
       #infobutton{
         border-radius: 20px;
+        background-image: linear-gradient(rgb(233, 131, 253), rgb(98, 1, 146));
       }
       #inputbox, #summarybox, #it, #sumstats{
         padding-left: 30px ;
         padding-right:   30px;
-        border-radius: 25px;
+        border-radius: 15px;
       }
       #sumstats, #it{
         color: white;
-        outline: 2px rgb(52, 0, 195);
-        text-shadow: 1px 0px 10px rgb(170, 146, 237);
-        font-size: 25px;
+        font-size: 20px;
+        color: white;
+        background: -webkit-linear-gradient(rgb(255, 255, 255), rgb(225, 110, 240));
+        background-clip: border-box;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-shadow: 0px 0px 4px rgb(245, 232, 232);
       }
       .centered {
         display: flex;
@@ -32,21 +41,43 @@
         justify-content: center;
       }
       .background {
-        background-image: url('https://media.giphy.com/media/vvU26eHAJUmd1RecYZ/giphy-downsized-large.gif?cid=ecf05e47yttvpk9433544h80trv18nmgvxrskubl3cxaycft&rid=giphy-downsized-large.gif&ct=g');
+        background-image: url('https://media.giphy.com/media/pmONR25D6YmkI2qHVg/giphy-downsized-large.gif?cid=ecf05e47bxmh8zttsp04o0si5j1fzt9ddhuabb7qcjuepmlb&rid=giphy-downsized-large.gif&ct=g');
         background-repeat: no-repeat;
-    background-size: cover;
-    -webkit-filter: blur(3px);
-    -moz-filter: blur(3px);
-    -o-filter: blur(3px);
-    -ms-filter: blur(3px);
-    filter: blur(3px);
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    z-index: -1;
-    background-position: center;
+        background-size: cover;
+        -webkit-filter: blur(5px);
+        -moz-filter: blur(5px);
+        -o-filter: blur(5px);
+        -ms-filter: blur(5px);
+        filter: blur(5px);
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        background-position: center;
+      }
+      #nav{
+        background-image: linear-gradient(rgba(114, 0, 196, 0.952), rgba(171, 65, 247, 0));
+        font-family: 'Courier New';
+        font-weight: bolder;
+        background: -webkit-linear-gradient(rgb(255, 255, 255), rgb(225, 110, 240));
+        background-clip: border-box;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-shadow: 0px 0px 4px rgb(245, 232, 232);  
+      }
+      #sumLink{
+        font-weight: lighter;
+        background: -webkit-linear-gradient(rgb(255, 255, 255), rgb(225, 110, 240));
+        background-clip: border-box;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-shadow: 0px 0px 4px rgb(245, 232, 232);
+        text-align: right;
+      }
+      #aboutLink{
+        font-weight: lighter;
       }
     </style>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -55,7 +86,7 @@
     <script type="text/javascript">
       window.addEventListener('DOMContentLoaded', (event) => {
         document.getElementById("infobutton").addEventListener("click", function(){
-          alert("You may be wondering what the stats above your summary represent. The Article Repetition Stat ranks how repetitive your article was on a scale of 1 to 10. The Original Word count counts how many words the article has. The Summary Word Count displays how many words your summary has. The reduction percentage shows how much your article has been reduced. If you are having trouble running the summarizer, make sure your sentences have periods and that your article is seperated into paragraphs.");
+          alert("You may be wondering what the stats above your summary represent. \n-The Article Repetition Stat ranks how repetitive your article was on a scale of 1 to 10. Anything below a 5 is great.\n-The Original Word count shows many words yourx article has. \n-The Summary Word Count displays how many words your summary has. \n-The reduction percentage shows how much your article has been reduced. \n-If you are having trouble running the summarizer, make sure your sentences have periods and that your article is seperated into paragraphs.");
         });
       });
     </script>
@@ -65,8 +96,8 @@
     <div class = "background">
       <div class = "blur"></div>
   </div>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
-      <a class="navbar-brand text-white">Article Summarizer</a>
+    <nav id = "nav" class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+      <a class="navbar-brand text-white">AI-Model Article Summarizer</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -74,10 +105,13 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item active">
-            <a class="nav-link text-primary" href="{% url 'index' %}">Summarize <span class="sr-only">(current)</span></a>
+            <a class="nav-link text-primary" id="sumLink" href="{% url 'about' %}">by Sai Tippana <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link text-primary" id="sumLink" href="{% url 'index' %}">Summarize <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-danger" href="{% url 'about' %}">About <span class="sr-only">(current)</span></a>
+            <a class="nav-link text-danger" id = "aboutLink" href="{% url 'about' %}">About <span class="sr-only">(current)</span></a>
           </li>
         </ul>
       </div>

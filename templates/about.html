@@ -10,10 +10,14 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <style>
-     #summarybutton {
+      body{
+        background-color: black;
+      }
+      #summarybutton {
         margin-top: 20px;
         margin-bottom: 0px;
-        border-radius: 10px;
+        border-radius: 8px;
+        background-image: linear-gradient(rgb(233, 157, 248), rgb(170, 0, 255));
       }
       #infobutton{
         border-radius: 20px;
@@ -21,22 +25,17 @@
       #inputbox, #summarybox, #it, #sumstats{
         padding-left: 30px ;
         padding-right:   30px;
-        border-radius: 25px;
+        border-radius: 15px;
       }
-      h1{
-        text-align: center;
-        font-size: 56px;
-        color: rgb(255, 196, 252);
-        text-shadow: 2px 2px 2px rgb(52, 0, 195);
-        -webkit-text-fill-color: linear-gradient(rgb(112, 72, 245), rgrgb(255, 255, 255));
-        border-radius: 6px;
-      }
-      h4{
-        text-align: center;
+      #sumstats, #it{
         color: white;
-        outline: 2px rgb(52, 0, 195);
-        text-shadow: 1px 0px 10px rgb(170, 146, 237);
-        font-size: 25px;
+        font-size: 20px;
+        color: white;
+        background: -webkit-linear-gradient(rgb(255, 255, 255), rgb(225, 110, 240));
+        background-clip: border-box;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-shadow: 0px 0px 4px rgb(245, 232, 232);
       }
       .centered {
         display: flex;
@@ -44,21 +43,64 @@
         justify-content: center;
       }
       .background {
-        background-image: url('https://media.giphy.com/media/vvU26eHAJUmd1RecYZ/giphy-downsized-large.gif?cid=ecf05e47yttvpk9433544h80trv18nmgvxrskubl3cxaycft&rid=giphy-downsized-large.gif&ct=g');
+        background-image: url('https://media.giphy.com/media/pmONR25D6YmkI2qHVg/giphy-downsized-large.gif?cid=ecf05e47bxmh8zttsp04o0si5j1fzt9ddhuabb7qcjuepmlb&rid=giphy-downsized-large.gif&ct=g');
         background-repeat: no-repeat;
-    background-size: cover;
-    -webkit-filter: blur(3px);
-    -moz-filter: blur(3px);
-    -o-filter: blur(3px);
-    -ms-filter: blur(3px);
-    filter: blur(3px);
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    z-index: -1;
-    background-position: center;
+        background-size: cover;
+        -webkit-filter: blur(5px);
+        -moz-filter: blur(5px);
+        -o-filter: blur(5px);
+        -ms-filter: blur(5px);
+        filter: blur(5px);
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        background-position: center;
+      }
+      #nav{
+        background-image: linear-gradient(rgba(114, 0, 196, 0.952), rgba(171, 65, 247, 0));
+        font-family: 'Courier New';
+        font-weight: bolder;
+        background: -webkit-linear-gradient(rgb(255, 255, 255), rgb(225, 110, 240));
+        background-clip: border-box;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-shadow: 0px 0px 4px rgb(245, 232, 232);  
+      }
+      #sumLink{
+        font-weight: lighter;
+        background: -webkit-linear-gradient(rgb(255, 255, 255), rgb(225, 110, 240));
+        background-clip: border-box;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-shadow: 0px 0px 4px rgb(245, 232, 232);
+        text-align: right;
+      }
+      #aboutLink{
+        font-weight: lighter;
+      }
+      h1{
+        font-family: 'Courier';
+        font-weight: bolder;
+        color: white;
+        background: -webkit-linear-gradient(rgb(255, 255, 255), rgb(225, 110, 240));
+        background-clip: border-box;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-shadow: 0px 0px 4px rgb(240, 169, 247);
+        text-align: center;
+      }
+      h4{
+        font-family: 'Courier';
+        color: white;
+        background: white;
+        background-clip: border-box;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-shadow: 0px 0px 4px rgb(240, 169, 247);
+        text-align: center;
       }
     </style>
   </head>
@@ -67,8 +109,8 @@
       <div class = "blur"></div>
   </div>
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
-      <a class="navbar-brand text-white">Article Summarizer</a>
+    <nav id = "nav" class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+      <a class="navbar-brand text-white">AI-Model Article Summarizer</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -76,10 +118,10 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item active">
-            <a class="nav-link text-primary" href="{% url 'index' %}">Summarize <span class="sr-only">(current)</span></a>
+            <a class="nav-link text-primary" id = "sumLink" href="{% url 'index' %}">Summarize <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-danger" href="{% url 'about' %}">About <span class="sr-only">(current)</span></a>
+            <a class="nav-link text-danger" id = "aboutLink "href="{% url 'about' %}">About <span class="sr-only">(current)</span></a>
           </li>
         </ul>
       </div>
@@ -91,7 +133,7 @@
           <h1>Sai Tippana</h1>
           <br>
           <img src="" alt="" width="350">
-          <br><br>
+          <br>
           <h4><span>I am an undergraduate student at Georgia State University studying computer science. In my free time I like to sleep, workout, hangout with friends, and work on coding projects.</span></h4>
         </div>
       </div>
