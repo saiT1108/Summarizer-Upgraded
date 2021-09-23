@@ -15,10 +15,12 @@
         margin-bottom: 0px;
         border-radius: 8px;
         background-image: linear-gradient(rgb(233, 131, 253), rgb(98, 1, 146));
+        color: white;
       }
       #infobutton{
         border-radius: 20px;
         background-image: linear-gradient(rgb(233, 131, 253), rgb(98, 1, 146));
+        color: white;
       }
       #inputbox, #summarybox, #it, #sumstats{
         padding-left: 30px ;
@@ -78,6 +80,12 @@
       }
       #aboutLink{
         font-weight: lighter;
+        background: -webkit-linear-gradient(rgb(255, 255, 255), rgb(225, 110, 240));
+        background-clip: border-box;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-shadow: 0px 0px 4px rgb(245, 232, 232);
+        text-align: right;
       }
     </style>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -107,12 +115,9 @@
           <li class="nav-item active">
             <a class="nav-link text-primary" id="sumLink" href="{% url 'about' %}">by Sai Tippana <span class="sr-only">(current)</span></a>
           </li>
-          <li class="nav-item active">
+          <!-- <li class="nav-item active">
             <a class="nav-link text-primary" id="sumLink" href="{% url 'index' %}">Summarize <span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-danger" id = "aboutLink" href="{% url 'about' %}">About <span class="sr-only">(current)</span></a>
-          </li>
+          </li> -->
         </ul>
       </div>
     </nav>
@@ -128,7 +133,7 @@
           <label for="Input Text" id='it'><span>Input:</span></label>
           <textarea name="input" id = "inputbox" rows="8" cols="80" class="form-control bg-light text-center">{{origtext}}</textarea>
           <div class="form-group centered">
-            <input type="submit" name="submit" value="Summarize" class="btn-primary" id="summarybutton">
+            <input type="submit" name="submit" value="Summarize" id="summarybutton">
           </div>
         </form>
     </div>
@@ -140,7 +145,7 @@
       <div class="row justify-content-center">
       <div class="col-lg-auto">
       <label for="summary" id="sumstats"><span>Repetition: {{repetition}}  | Original Word Count: {{originalwc}}  | Summary Word Count: {{sumcount}}  | Reduction: {{reduction}}</span>
-        <button type="button" class="btn-primary" id="infobutton">
+        <button type="button" id="infobutton">
           <img src="https://www.freeiconspng.com/thumbs/information-icon/information-icon-clip-art-at-clker-com-vector-clip-art-online--32.png" width="20" alt="Info">
         </button>
       </label>

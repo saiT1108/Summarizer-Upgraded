@@ -10,8 +10,12 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <style>
+      html{
+        min-height: 100%;
+      }
       body{
         background-color: black;
+        vertical-align: middle;
       }
       #summarybutton {
         margin-top: 20px;
@@ -91,6 +95,7 @@
         -webkit-text-fill-color: transparent;
         text-shadow: 0px 0px 4px rgb(240, 169, 247);
         text-align: center;
+        vertical-align: middle;
       }
       h4{
         font-family: 'Courier';
@@ -101,6 +106,13 @@
         -webkit-text-fill-color: transparent;
         text-shadow: 0px 0px 4px rgb(240, 169, 247);
         text-align: center;
+        vertical-align: middle;
+      }
+      #github{
+        font-weight: bolder;
+      }
+      #details{
+        min-height: 100%;
       }
     </style>
   </head>
@@ -120,21 +132,19 @@
           <li class="nav-item active">
             <a class="nav-link text-primary" id = "sumLink" href="{% url 'index' %}">Summarize <span class="sr-only">(current)</span></a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link text-danger" id = "aboutLink "href="{% url 'about' %}">About <span class="sr-only">(current)</span></a>
-          </li>
         </ul>
       </div>
     </nav>
 
-    <div class="container-md">
+    <div id = "details" class="container-md">
       <div class="row justify-content-center">
         <div class="col-3">
+          <br><br><br><br><br><br><br><br><br><br><br><br>
           <h1>Sai Tippana</h1>
           <br>
           <img src="" alt="" width="350">
           <br>
-          <h4><span>I am an undergraduate student at Georgia State University studying computer science. In my free time I like to sleep, workout, hangout with friends, and work on coding projects.</span></h4>
+          <h4><span>I am an undergraduate student at Georgia State University studying computer science. In my free time I like to sleep, workout, hangout with friends, and work on <a id="github" href="https://github.com/saiT1108">coding projects.</a></span></h4>
         </div>
       </div>
     </div>
