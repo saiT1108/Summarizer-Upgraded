@@ -86,7 +86,7 @@
     <script type="text/javascript">
       window.addEventListener('DOMContentLoaded', (event) => {
         document.getElementById("infobutton").addEventListener("click", function(){
-          alert("You may be wondering what the stats above your summary represent. \n-The Article Repetition Stat ranks how repetitive your article was on a scale of 1 to 10. Anything below a 5 is great.\n-The Original Word count shows many words yourx article has. \n-The Summary Word Count displays how many words your summary has. \n-The reduction percentage shows how much your article has been reduced. \n-If you are having trouble running the summarizer, make sure your sentences have periods and that your article is seperated into paragraphs.");
+          alert("You may be wondering what the stats above your summary represent. \n-The Repetition Stat ranks how repetitive your article was on a scale of 1 to 10. Anything below a 5 is great.\n-The Original Word count shows many words yourx article has. \n-The Summary Word Count displays how many words your summary has. \n-The reduction shows by what % your article has been reduced. \n-If you are having trouble running the summarizer, make sure your sentences have periods and that your article is seperated into paragraphs.");
         });
       });
     </script>
@@ -139,7 +139,7 @@
 
       <div class="row justify-content-center">
       <div class="col-lg-auto">
-      <label for="summary" id="sumstats"><span>Article Repetition: {{repetition}}  | Original Word Count: {{originalwc}}  | Summary Word Count: {{sumcount}}  | Reduction Percentage: {{reduction}}</span>
+      <label for="summary" id="sumstats"><span>Repetition: {{repetition}}  | Original Word Count: {{originalwc}}  | Summary Word Count: {{sumcount}}  | Reduction: {{reduction}}</span>
         <button type="button" class="btn-primary" id="infobutton">
           <img src="https://www.freeiconspng.com/thumbs/information-icon/information-icon-clip-art-at-clker-com-vector-clip-art-online--32.png" width="20" alt="Info">
         </button>
