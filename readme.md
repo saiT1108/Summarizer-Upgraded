@@ -1,6 +1,6 @@
 ﻿# Article Summarizer 2.0
-## Created by Sai Tippana(saiT1108)
-### Credit to Abhi Singh for Django integration
+### Created by Sai Tippana(saiT1108)
+#### Credit to Abhi Singh for Django integration
 
 # About the software
 
